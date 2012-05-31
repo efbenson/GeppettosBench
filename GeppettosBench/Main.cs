@@ -52,5 +52,26 @@ namespace GeppettosBench
             TokensTextbox_TextChanged(null, null);
         }
 
+        private void LoadTemplateFromFileButton_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            var selected = openFileDialog.ShowDialog();
+
+            if (selected != System.Windows.Forms.DialogResult.Cancel)
+            {
+                TemplateTextbox.Text = "";
+                var fileStream = openFileDialog.OpenFile();
+
+                using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream))
+                {
+                    // Read the first line from the file and write it the textbox.
+                    TemplateTextbox.Text += reader.ReadToEnd();
+                }
+                fileStream.Close();
+
+            }
+        }
     }
 }

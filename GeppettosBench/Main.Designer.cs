@@ -46,7 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.OutputTextbox = new System.Windows.Forms.TextBox();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.LoadTemplateFromFileButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -107,6 +107,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.LoadTemplateFromFileButton);
             this.groupBox2.Controls.Add(this.TemplateTextbox);
             this.groupBox2.Location = new System.Drawing.Point(324, 12);
             this.groupBox2.Name = "groupBox2";
@@ -120,11 +121,11 @@
             this.TemplateTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.TemplateTextbox.Location = new System.Drawing.Point(6, 19);
+            this.TemplateTextbox.Location = new System.Drawing.Point(6, 41);
             this.TemplateTextbox.Multiline = true;
             this.TemplateTextbox.Name = "TemplateTextbox";
             this.TemplateTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TemplateTextbox.Size = new System.Drawing.Size(337, 203);
+            this.TemplateTextbox.Size = new System.Drawing.Size(337, 181);
             this.TemplateTextbox.TabIndex = 0;
             this.TemplateTextbox.Text = "<div>\r\n<span>Name:%%1%% %%2%%</span>\r\n<br/>\r\n<span>Phone:%%3%%</span>\r\n</div>";
             // 
@@ -252,6 +253,16 @@
             this.OutputTextbox.Size = new System.Drawing.Size(629, 190);
             this.OutputTextbox.TabIndex = 0;
             // 
+            // LoadTemplateFromFileButton
+            // 
+            this.LoadTemplateFromFileButton.Location = new System.Drawing.Point(6, 17);
+            this.LoadTemplateFromFileButton.Name = "LoadTemplateFromFileButton";
+            this.LoadTemplateFromFileButton.Size = new System.Drawing.Size(89, 23);
+            this.LoadTemplateFromFileButton.TabIndex = 1;
+            this.LoadTemplateFromFileButton.Text = "Load From File";
+            this.LoadTemplateFromFileButton.UseVisualStyleBackColor = true;
+            this.LoadTemplateFromFileButton.Click += new System.EventHandler(this.LoadTemplateFromFileButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,9 +306,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TokenTriggerSuffixTextbox;
         private System.Windows.Forms.TextBox TokenTriggerPrefixTextbox;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button GenerateButton;
         private System.Windows.Forms.TextBox OutputTextbox;
+        private System.Windows.Forms.Button LoadTemplateFromFileButton;
 
     }
 }
