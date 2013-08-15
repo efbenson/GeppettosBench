@@ -5,6 +5,7 @@
     using System.ComponentModel;
     using System.Data;
     using System.Drawing;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Windows.Forms;
@@ -109,7 +110,7 @@
             double.TryParse(this.IdTokenStartTextBox.Text, out id);
             double.TryParse(this.IdTokenIncrementTextBox.Text, out idIncrement);
 
-            foreach (var line in this.ValuesTextbox.Text.Split(new char[] { '\n' }))
+            foreach (var line in this.ValuesTextbox.Text.Split(Environment.NewLine.ToCharArray()))
             {
                 var template = baseTemplate;
                 var values = line.Split(this.SplitCharForValuesTestbox.Text[0]);
@@ -131,7 +132,7 @@
                     template.Replace(
                         this.TokenTriggerPrefixTextbox.Text + "id" + this.TokenTriggerSuffixTextbox.Text, id.ToString());
 
-                retVal.Append(template + "\n");
+                retVal.Append(template);
                 id += idIncrement;
             }
 
@@ -192,6 +193,30 @@
             {
                 this.ValuesTextbox.Text += reader.ReadToEnd();
             }
+            fileStream.Close();
+        }
+
+        /// <summary>The save output button click.</summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The e.</param>
+        private void SaveOutputButtonClick(object sender, EventArgs e)
+        {
+            var saveFileDialog = new SaveFileDialog();
+
+            var selected = saveFileDialog.ShowDialog();
+
+            if (selected == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            var fileStream = saveFileDialog.OpenFile();
+
+            var writer = new StreamWriter(fileStream);
+
+            writer.Write(OutputTextbox.Text);
+
+            writer.Flush();
             fileStream.Close();
         }
     }

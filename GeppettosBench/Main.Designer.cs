@@ -39,12 +39,16 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.GenerateTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.IdTokenIncrementTextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.IdTokenStartTextBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.LoopSectionTokenSuffixTextbox = new System.Windows.Forms.TextBox();
             this.LoopSectionTokenPrefixTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.GenerateButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.TokenTriggerSuffixTextbox = new System.Windows.Forms.TextBox();
             this.TokenTriggerPrefixTextbox = new System.Windows.Forms.TextBox();
@@ -52,12 +56,9 @@
             this.SplitCharForValuesTestbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.SaveOutputButton = new System.Windows.Forms.Button();
             this.OutputTextbox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.IdTokenStartTextBox = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.IdTokenIncrementTextBox = new System.Windows.Forms.TextBox();
+            this.GenerateButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -68,8 +69,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.LoadDataFromFile);
             this.groupBox1.Controls.Add(this.NumberOfItems);
@@ -77,7 +77,7 @@
             this.groupBox1.Controls.Add(this.ValuesTextbox);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(306, 228);
+            this.groupBox1.Size = new System.Drawing.Size(306, 247);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Values";
@@ -112,28 +112,25 @@
             // 
             // ValuesTextbox
             // 
-            this.ValuesTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.ValuesTextbox.Location = new System.Drawing.Point(6, 41);
             this.ValuesTextbox.Multiline = true;
             this.ValuesTextbox.Name = "ValuesTextbox";
             this.ValuesTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.ValuesTextbox.Size = new System.Drawing.Size(294, 157);
+            this.ValuesTextbox.Size = new System.Drawing.Size(294, 164);
             this.ValuesTextbox.TabIndex = 1;
             this.ValuesTextbox.Text = "John|Doe|484.232.5555\r\nJane|Smith|494.343.2222\r\nRobert|Duncan|620.232.6666";
+            this.ValuesTextbox.WordWrap = false;
             this.ValuesTextbox.TextChanged += new System.EventHandler(this.TokensTextboxTextChanged);
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.LoadTemplateFromFileButton);
             this.groupBox2.Controls.Add(this.TemplateTextbox);
             this.groupBox2.Location = new System.Drawing.Point(324, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(349, 228);
+            this.groupBox2.Size = new System.Drawing.Size(349, 247);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Template";
@@ -150,17 +147,18 @@
             // 
             // TemplateTextbox
             // 
-            this.TemplateTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.TemplateTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TemplateTextbox.Location = new System.Drawing.Point(6, 41);
             this.TemplateTextbox.Multiline = true;
             this.TemplateTextbox.Name = "TemplateTextbox";
             this.TemplateTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TemplateTextbox.Size = new System.Drawing.Size(337, 181);
+            this.TemplateTextbox.Size = new System.Drawing.Size(337, 187);
             this.TemplateTextbox.TabIndex = 0;
             this.TemplateTextbox.Text = "<div>\r\n<<@\r\n<span> Employee #%%id%%</span>\r\n<span>Name:%%1%% %%2%%</span>\r\n<br/>\r" +
-    "\n@>>\r\n<<@\r\n<span>Phone:%%3%%</span>\r\n@>>\r\n</div>";
+    "\n@>>\r\n<<@\r\n<span> Employee #%%id%%</span>\r\n<span>Phone:%%3%%</span>\r\n@>>\r\n</div>" +
+    "";
+            this.TemplateTextbox.WordWrap = false;
             // 
             // groupBox3
             // 
@@ -168,21 +166,25 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.GenerateTabControl);
+            this.groupBox3.Controls.Add(this.GenerateButton);
             this.groupBox3.Location = new System.Drawing.Point(12, 246);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(661, 247);
+            this.groupBox3.Size = new System.Drawing.Size(661, 266);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Generate";
             // 
             // GenerateTabControl
             // 
+            this.GenerateTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.GenerateTabControl.Controls.Add(this.tabPage1);
             this.GenerateTabControl.Controls.Add(this.tabPage2);
-            this.GenerateTabControl.Location = new System.Drawing.Point(6, 19);
+            this.GenerateTabControl.Location = new System.Drawing.Point(6, 48);
             this.GenerateTabControl.Name = "GenerateTabControl";
             this.GenerateTabControl.SelectedIndex = 0;
-            this.GenerateTabControl.Size = new System.Drawing.Size(649, 228);
+            this.GenerateTabControl.Size = new System.Drawing.Size(649, 218);
             this.GenerateTabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -197,7 +199,6 @@
             this.tabPage1.Controls.Add(this.LoopSectionTokenSuffixTextbox);
             this.tabPage1.Controls.Add(this.LoopSectionTokenPrefixTextBox);
             this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.GenerateButton);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.TokenTriggerSuffixTextbox);
             this.tabPage1.Controls.Add(this.TokenTriggerPrefixTextbox);
@@ -207,10 +208,56 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(641, 202);
+            this.tabPage1.Size = new System.Drawing.Size(641, 192);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Options";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // IdTokenIncrementTextBox
+            // 
+            this.IdTokenIncrementTextBox.Location = new System.Drawing.Point(222, 152);
+            this.IdTokenIncrementTextBox.MaxLength = 5;
+            this.IdTokenIncrementTextBox.Name = "IdTokenIncrementTextBox";
+            this.IdTokenIncrementTextBox.Size = new System.Drawing.Size(37, 20);
+            this.IdTokenIncrementTextBox.TabIndex = 16;
+            this.IdTokenIncrementTextBox.Text = "1";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(142, 155);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(74, 13);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Increments By";
+            // 
+            // IdTokenStartTextBox
+            // 
+            this.IdTokenStartTextBox.Location = new System.Drawing.Point(80, 155);
+            this.IdTokenStartTextBox.MaxLength = 5;
+            this.IdTokenStartTextBox.Name = "IdTokenStartTextBox";
+            this.IdTokenStartTextBox.Size = new System.Drawing.Size(41, 20);
+            this.IdTokenStartTextBox.TabIndex = 14;
+            this.IdTokenStartTextBox.Text = "0";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(7, 155);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 13);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Starts at";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(6, 139);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(69, 16);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Id Token";
             // 
             // label7
             // 
@@ -257,16 +304,6 @@
             this.label5.Size = new System.Drawing.Size(99, 16);
             this.label5.TabIndex = 7;
             this.label5.Text = "Loop Section";
-            // 
-            // GenerateButton
-            // 
-            this.GenerateButton.Location = new System.Drawing.Point(560, 7);
-            this.GenerateButton.Name = "GenerateButton";
-            this.GenerateButton.Size = new System.Drawing.Size(75, 23);
-            this.GenerateButton.TabIndex = 6;
-            this.GenerateButton.Text = "Generate";
-            this.GenerateButton.UseVisualStyleBackColor = true;
-            this.GenerateButton.Click += new System.EventHandler(this.GenerateButtonClick);
             // 
             // label4
             // 
@@ -326,75 +363,56 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.SaveOutputButton);
             this.tabPage2.Controls.Add(this.OutputTextbox);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(641, 202);
+            this.tabPage2.Size = new System.Drawing.Size(641, 192);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Output";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // SaveOutputButton
+            // 
+            this.SaveOutputButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaveOutputButton.Location = new System.Drawing.Point(557, 163);
+            this.SaveOutputButton.Name = "SaveOutputButton";
+            this.SaveOutputButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveOutputButton.TabIndex = 7;
+            this.SaveOutputButton.Text = "Save Output";
+            this.SaveOutputButton.UseVisualStyleBackColor = true;
+            this.SaveOutputButton.Click += new System.EventHandler(this.SaveOutputButtonClick);
+            // 
             // OutputTextbox
             // 
+            this.OutputTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.OutputTextbox.Location = new System.Drawing.Point(3, 6);
             this.OutputTextbox.Multiline = true;
             this.OutputTextbox.Name = "OutputTextbox";
             this.OutputTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.OutputTextbox.Size = new System.Drawing.Size(629, 190);
+            this.OutputTextbox.Size = new System.Drawing.Size(629, 153);
             this.OutputTextbox.TabIndex = 0;
+            this.OutputTextbox.WordWrap = false;
             // 
-            // label8
+            // GenerateButton
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 139);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 16);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Id Token";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 155);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 13);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "Starts at";
-            // 
-            // IdTokenStartTextBox
-            // 
-            this.IdTokenStartTextBox.Location = new System.Drawing.Point(80, 155);
-            this.IdTokenStartTextBox.MaxLength = 5;
-            this.IdTokenStartTextBox.Name = "IdTokenStartTextBox";
-            this.IdTokenStartTextBox.Size = new System.Drawing.Size(41, 20);
-            this.IdTokenStartTextBox.TabIndex = 14;
-            this.IdTokenStartTextBox.Text = "0";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(142, 155);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(74, 13);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "Increments By";
-            // 
-            // IdTokenIncrementTextBox
-            // 
-            this.IdTokenIncrementTextBox.Location = new System.Drawing.Point(222, 152);
-            this.IdTokenIncrementTextBox.MaxLength = 5;
-            this.IdTokenIncrementTextBox.Name = "IdTokenIncrementTextBox";
-            this.IdTokenIncrementTextBox.Size = new System.Drawing.Size(37, 20);
-            this.IdTokenIncrementTextBox.TabIndex = 16;
-            this.IdTokenIncrementTextBox.Text = "1";
+            this.GenerateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.GenerateButton.Location = new System.Drawing.Point(573, 19);
+            this.GenerateButton.Name = "GenerateButton";
+            this.GenerateButton.Size = new System.Drawing.Size(75, 23);
+            this.GenerateButton.TabIndex = 6;
+            this.GenerateButton.Text = "Generate";
+            this.GenerateButton.UseVisualStyleBackColor = true;
+            this.GenerateButton.Click += new System.EventHandler(this.GenerateButtonClick);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 505);
+            this.ClientSize = new System.Drawing.Size(685, 524);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -447,6 +465,7 @@
         private System.Windows.Forms.TextBox IdTokenStartTextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button SaveOutputButton;
 
     }
 }
